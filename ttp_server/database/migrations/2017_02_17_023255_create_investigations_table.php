@@ -17,7 +17,7 @@ class CreateInvestigationsTable extends Migration
             $table->increments('id');
             $table->integer('user_id')->unsigned();
             $table->integer('target_id')->unsigned();
-            $table->integer('location_code',15);
+            $table->integer('location_code');
             $table->string('name',50);
             $table->decimal('lat', 10, 8);
             $table->decimal('lon', 11, 8);
