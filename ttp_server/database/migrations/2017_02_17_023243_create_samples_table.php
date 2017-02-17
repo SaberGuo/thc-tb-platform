@@ -15,7 +15,13 @@ class CreateSamplesTable extends Migration
     {
         Schema::create('samples', function (Blueprint $table) {
             $table->increments('id');
-            $table->timestamps();
+            $table->integer('invest_id')->unsigned();
+            $table->string('value',100);
+            $table->json('tags');
+            $table->timestamp('ts')->nullable();
+            $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP'));
+            $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
+            $table->softDeletes();
         });
     }
 
